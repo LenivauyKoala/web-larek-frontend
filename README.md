@@ -130,47 +130,91 @@ constructor(data, events) - создание модели
 data - базовые данные
 events - объект для работы с событиями
 
+Тип для категории продуктов которые написаны в карточках товаров
+type productCategory = 'софт-скил' | 'другое' | 'дополнительное' | 'кнопка' | 'хард-скил'
+
+Интерфейс для продукта
+interface IProduct {
+  id: string;
+  category: productCategory;
+  title: string;
+  description: string;
+  image: string;
+  cost: number;
+}
+
+Интерфейс для формы заказа
+interface IOrderForm {
+  email: string;
+  phone: string;
+  address: string;
+  payMethod: 'онлайн' | 'при получении'; 
+}
+
+Интерфейс для заказа, расширяет интерфейс IOrderForm
+interface IOrder extends IOrderForm {
+  items: string[];
+}
+
+Интерфейс для результата заказа
+interface IOrderResult {
+  id: string;
+  sum: number;
+}
+
+Тип для ошибок формы
+type FormErrors = Partial<Record<keyof IOrder, string>>;
+
+Интерфейс описывает состояние приложения
+interface IState {
+  catalog: IProduct[];
+  basket: string[];
+  preview: string | null;
+  order: IOrder | null;
+  loading: boolean;
+}
+
 ## Компоненты
 
 • Page: отображает страницу сайта
 
-counter - счётчик элементов
-catalog - каталог товаров
-basket - элемент корзины
+counter: HTMLElement - счётчик элементов
+catalog: HTMLElement - каталог товаров
+basket: HTMLElement - элемент корзины
 
 
 • Product: карточка товара
 
-id - индивидуальный номер карточки
-category - категория карточки
-title - название карточки
-description - описание карточки
-image - изображение карточки
-cost - стоимость товара
+id: string - индивидуальный номер карточки
+category: string - категория карточки
+title: string - название карточки
+description: string - описание карточки
+image: string - изображение карточки
+cost: number - стоимость товара
 
 • Order: форма заказа
 
-phone - поле для ввода телефона
-email - поле для ввода почты
-address - поле для ввода адреса
-payMethod - метод оплаты
+phone: string - поле для ввода телефона
+email: string - поле для ввода почты
+address: string - поле для ввода адреса
+payMethod: string - метод оплаты
 
 
 • Basket: форма корзины
 
-list - список товаров в корзине
-sum - общая стоимость товаров
-button - кнопка оформления заказа
-buttonDelete - удаления товара из корзины
+list: HTMLElement - список товаров в корзине
+sum: HTMLElement - общая стоимость товаров
+button: HTMLElement - кнопка оформления заказа
+buttonDelete: HTMLElement - удаления товара из корзины
 
 • Modal: работа модльных окон
 
-buttonClose - кнопка закрытия модального окна
-content - содержимое модального окна
+buttonClose: HTMLElement - кнопка закрытия модального окна
+content: HTMLElement - содержимое модального окна
 
 • Complete: успешное оформление заказа
 
-buttonСlose - кнопка закрытия модального окна
+buttonСlose: HTMLElement - кнопка закрытия модального окна
 
 ## Интерфейс
 
