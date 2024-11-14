@@ -185,12 +185,12 @@ basket: HTMLElement - элемент корзины
 
 • Product: карточка товара
 
-id: string - индивидуальный номер карточки
-category: string - категория карточки
-title: string - название карточки
-description: string - описание карточки
-image: string - изображение карточки
-cost: number - стоимость товара
+id: HTMLElement - индивидуальный номер карточки
+category: HTMLElement - категория карточки
+title: HTMLElement - название карточки
+description: HTMLElement - описание карточки
+image: HTMLElement - изображение карточки
+cost: HTMLElement - стоимость товара
 
 • Order: форма заказа
 
@@ -205,7 +205,6 @@ payMethod: string - метод оплаты
 list: HTMLElement - список товаров в корзине
 sum: HTMLElement - общая стоимость товаров
 button: HTMLElement - кнопка оформления заказа
-buttonDelete: HTMLElement - удаления товара из корзины
 
 • Modal: работа модльных окон
 
@@ -215,6 +214,10 @@ content: HTMLElement - содержимое модального окна
 • Complete: успешное оформление заказа
 
 buttonСlose: HTMLElement - кнопка закрытия модального окна
+
+• Success: отображение успешного заказа
+
+total: HTMLElement - общая сумма заказа
 
 ## Интерфейс
 
