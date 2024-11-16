@@ -194,10 +194,10 @@ cost: HTMLElement - стоимость товара
 
 • Order: форма заказа
 
-phone: string - поле для ввода телефона
-email: string - поле для ввода почты
-address: string - поле для ввода адреса
-payMethod: string - метод оплаты
+phone: HTMLElement - поле для ввода телефона
+email: HTMLElement - поле для ввода почты
+address: HTMLElement - поле для ввода адреса
+payMethod: HTMLElement - метод оплаты
 
 
 • Basket: форма корзины
