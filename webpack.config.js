@@ -21,10 +21,10 @@ const config = {
     path: path.resolve(__dirname, "dist"),
   },
   devServer: {
-    open: true,
-    host: "localhost",
-    watchFiles: ["src/pages/*.html"],
-    hot: true
+    static: path.resolve(__dirname, './dist'),
+    compress: true,
+    port: 8080,
+    open: true
   },
   plugins: [
     new HtmlWebpackPlugin({

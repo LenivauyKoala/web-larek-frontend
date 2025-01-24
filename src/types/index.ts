@@ -8,36 +8,64 @@ export interface IProduct {
   title: string;
   description: string;
   image: string;
-  cost: number;
+  price: number | null;
 }
 
 //Интерфейс для формы заказа
-export interface IOrderForm {
-  email: string;
-  phone: string;
+export interface IOrderForm extends IContactForm {
+  items: string[];
   address: string;
-  payMethod: 'онлайн' | 'при получении'; 
+  payment: string;
+  total: number;
 }
 
-//Интерфейс для заказа, расширяет интерфейс IOrderForm
-export interface IOrder extends IOrderForm {
-  items: string[];
+export interface IContactForm {
+  email: string;
+  phone: string;
 }
 
 //Интерфейс для результата заказа
 export interface IOrderResult {
   id: string;
-  sum: number;
+  total: number;
 }
 
-//Тип для ошибок формы
-export type FormErrors = Partial<Record<keyof IOrder, string>>;
+// Новое
 
-//Интерфейс описывает состояние приложения
+export interface IAction {
+  onClick: (evt: MouseEvent) => void; 
+}
+
+export interface IPage {
+  counter: number;
+  products: HTMLElement[];
+  locked: boolean;
+}
+
+export interface IBasketView {
+	items: HTMLElement[];
+	total: number;
+	selected: string[];
+}
+
+export interface OrderUnion extends ContactsErrors, OrderErrors {}
+
+export type OrderErrors = {
+  address?: string;
+  payment?: string;
+};
+
+export type ContactsErrors = {
+  email?: string;
+  phone?: string;
+};
+
 export interface IState {
-  catalog: IProduct[];
-  basket: string[];
-  preview: string | null;
-  order: IOrder | null;
-  loading: boolean;
+  validation: boolean;
+  errors: string[];
+}
+
+export interface IOrderSuccess extends ContactsErrors, OrderErrors, IState {
+  items: string[];
+  total: number;
 }

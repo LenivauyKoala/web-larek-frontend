@@ -18,7 +18,7 @@ export class Api {
             }
         };
     }
-
+        
     protected handleResponse(response: Response): Promise<object> {
         if (response.ok) return response.json();
         else return response.json()
