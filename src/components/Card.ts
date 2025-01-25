@@ -81,13 +81,10 @@ export class Card<T extends IProduct | {}> extends Component<T | IProduct> {
     this.toggleClass(this._category, categoryClass, true);
   }
 
-  set description(value: string | string[]) {
-    if (Array.isArray(value)) {
-      this._description?.querySelectorAll('.description-item').forEach((element: HTMLElement, index: number) => { 
-        this.setText(element, value[index]);
-      });
-    } else {
-      this.setText(this._description, value);
-    }
+  set description(value: string) { 
+    this.setText(this._description, value); 
+    if (this._category) { 
+      this._category.className = 'card__category card__category_${this.categoryColors[value]}'; 
+    } 
   }
 }
