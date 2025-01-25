@@ -68,45 +68,6 @@ events.on('items:changed', () => {
   });
 });
 
-// Открытие модального окна карточки
-// events.on('card:select', (item: IProduct) => {
-// 	if (item) {
-// 			api.getProductItem(item.id)	
-// 				.then((res) => {
-// 					const card = new Card('card', cloneTemplate(cardPreviewTemplate), {
-// 						onClick: (evt) => {
-// 							const btn = evt.target as HTMLButtonElement;
-// 							if (btn.textContent === 'Купить') {
-// 								btn.textContent = 'В корзину';
-// 								appData.toggleOrderedProduct(res.id, true);
-// 								page.counter = appData.order.items.length;
-// 								events.emit('basket:changed');
-// 							} else if (btn.textContent === 'В корзину') {
-// 								events.emit('basket:open', item);
-// 							};
-// 						}
-// 					});
-					
-// 					card.isPressed(appData.order.items.includes(res.id));
-
-// 					modal.render({
-// 						content: card.render({
-// 							title: res.title,
-// 							image: res.image,
-// 							description: res.description,
-// 							price: res.price,
-// 							category: res.category
-// 						}),
-// 					});
-// 				})
-// 				.catch((err) => {
-// 					console.error(`Error: ` + err);
-// 				});
-// 	} else {
-// 		modal.close();
-// 	} 
-// })
-
 events.on('card:select', (item: IProduct) => {
 	if (item) {
 					const card = new Card('card', cloneTemplate(cardPreviewTemplate), {
